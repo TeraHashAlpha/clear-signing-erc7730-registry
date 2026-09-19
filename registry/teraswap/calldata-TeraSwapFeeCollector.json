@@ -43,7 +43,12 @@
           { "path": "token", "label": "Input Token", "format": "addressName", "params": { "types": ["token"] } },
           { "path": "totalAmount", "label": "Amount In", "format": "tokenAmount", "params": { "tokenPath": "token" } },
           { "path": "tokenOut", "label": "Output Token", "format": "addressName", "params": { "types": ["token"] } },
-          { "path": "minimumOutput", "label": "Minimum Output", "format": "tokenAmount", "params": { "tokenPath": "tokenOut" } },
+          {
+            "path": "minimumOutput",
+            "label": "Minimum Output",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "tokenOut", "nativeCurrencyAddress": "0x0000000000000000000000000000000000000000" }
+          },
           { "path": "router", "label": "Router", "format": "addressName", "params": { "types": ["contract"] } },
           { "path": "routerData", "label": "Router Data", "format": "raw", "visible": "never" }
         ]
@@ -51,12 +56,7 @@
       "swapETHWithFee(address router,bytes routerData,address tokenOut,uint256 minimumOutput)": {
         "intent": "Swap ETH via TeraSwap",
         "fields": [
-          {
-            "path": "@.value",
-            "label": "ETH Amount",
-            "format": "tokenAmount",
-            "params": { "nativeCurrencyAddress": ["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", "0x0000000000000000000000000000000000000000"] }
-          },
+          { "path": "@.value", "label": "ETH Amount", "format": "amount" },
           { "path": "tokenOut", "label": "Output Token", "format": "addressName", "params": { "types": ["token"] } },
           { "path": "minimumOutput", "label": "Minimum Output", "format": "tokenAmount", "params": { "tokenPath": "tokenOut" } },
           { "path": "router", "label": "Router", "format": "addressName", "params": { "types": ["contract"] } },
